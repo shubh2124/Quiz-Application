@@ -1,0 +1,30 @@
+<div class="question-list">
+    <div class="main-question" *ngFor="let mainQuestion of questions">
+     <p class="question">{{ mainQuestion.question }}</p>
+<p class="question"> Options:- {{mainQuestion.options}}</p>
+      <mat-form-field  class="text-input">
+        <mat-label>Your answer</mat-label>
+
+        <input matInput     autocomplete="off"
+        [(ngModel)]="selectedAnswer" />
+      </mat-form-field>
+  
+      <div class="sub-questions" *ngFor="let subQuestion of mainQuestion.subQue">
+        <p
+          *ngIf="selectedAnswer === 'Apple' && mainQuestion.options.includes(subQuestion.showIf)"
+          class="sub-question"
+        >
+          {{ subQuestion.question }}
+          <mat-form-field  class="text-input">
+            <mat-label>Your answer</mat-label>
+    
+            <input matInput
+             />
+          </mat-form-field>
+        </p>
+        
+      </div>
+      
+    </div>
+  </div>
+  
